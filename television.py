@@ -4,16 +4,15 @@ class Television:
     MAX_VOLUME = 2
     MAX_CHANNEL = 3
    
-    def __init__(self):
+    def __init__(self) -> None:
         self.status = False
         self.muted = False
         self.__volume = Television.MIN_VOLUME 
         self.__channel = Television.MIN_CHANNEL
 
-    def power(self):
+    def power(self) -> None:
         '''
         turns the television on or off
-        :return: None
         '''
         
         if self.status:
@@ -21,10 +20,9 @@ class Television:
         else:
             self.status = True
 
-    def mute(self):
+    def mute(self) -> None:
         '''
         mutes and unmutes the television
-        :return: None
         '''
         if self.status:
             if self.muted:
@@ -32,12 +30,11 @@ class Television:
             else:
                 self.muted = True
 
-    def channel_up(self):
+    def channel_up(self) -> None:
         '''
         Method that raises the channel,
         goes to the lowest channel if the
         TV is already on the highest channel
-        :return: None
         '''
         if self.status:
             if self.__channel < Television.MAX_CHANNEL:
@@ -45,12 +42,11 @@ class Television:
             else:
                 self.__channel = Television.MIN_CHANNEL
 
-    def channel_down(self):
+    def channel_down(self) -> None:
         '''
         Method that lowers the channel,
         goes to the highest channel if the
         TV is already on the lowest channel
-        :return: None
         '''
         if self.status:
             self.muted = False
@@ -60,7 +56,7 @@ class Television:
                 self.__channel = Television.MAX_CHANNEL
 
         
-    def volume_up(self):
+    def volume_up(self) -> None:
         '''
         method raises the volume one,
         it won't do anything if the TV is at
@@ -72,7 +68,7 @@ class Television:
             if self.__volume < Television.MAX_VOLUME:
                 self.__volume += 1
 
-    def volume_down(self):
+    def volume_down(self) -> None:
          '''
         method lowers the volume one,
         it won't do anything if the TV is at
@@ -84,7 +80,7 @@ class Television:
             if self.__volume > Television.MIN_VOLUME:
                 self.__volume -= 1
 
-    def __str__(self):
+    def __str__(self) -> str:
         '''
         This prints the power status, channel, and volume
         to the console, used to test if the methods are
